@@ -6,18 +6,18 @@
     RewriteBase /ks/medievento/
  
     RewriteCond %{REQUEST_URI} ^system.*
-    RewriteRule ^(.*)$ /ks/medievento/index.php?/$1 [L]
+    RewriteRule ^(.*)$ /ks/keyeventos-codeignater/index.php?/$1 [L]
  
     RewriteCond %{REQUEST_URI} ^application.*
-    RewriteRule ^(.*)$ /ks/medievento/index.php?/$1 [L]
+    RewriteRule ^(.*)$ /ks/keyeventos-codeignater/index.php?/$1 [L]
  
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /ks/medievento/index.php?/$1 [L]
+    RewriteRule ^(.*)$ /ks/keyeventos-codeignater/index.php?/$1 [L]
  
 	##### rewrite exceptions
     RewriteCond $1 !^(index.php|css|js|img|public|robots.txt)
-    RewriteRule ^(.*)$ /ks/medievento/index.php/$1 [L]
+    RewriteRule ^(.*)$ /ks/keyeventos-codeignater/index.php/$1 [L]
  
 </IfModule>
  

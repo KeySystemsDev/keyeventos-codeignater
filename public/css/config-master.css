@@ -1,0 +1,31 @@
+@import url("config-tooltip.css");
+@import url("config-upload.css");
+
+@font-face {
+	font-family: "lobster"; 
+	src: url(fonts/Lobster_1.3.ttf) format("truetype"); 
+} 
+.menu-superior{
+	float: left;
+	font-family: "lobster";
+	font-size: 18px;
+	line-height: 18px;
+	margin: 0px;
+}
+.menu-vertical{
+	float: left;
+	font-family: "lobster";
+	font-size: 28px;
+	line-height: 28px;
+	margin-top: -5px;
+	padding: 0px 5px;
+	padding-right: 10px;
+}
+.activo,
+.menu-superior a.activo{
+  background: #f9f9f9;
+}
+.seccion{
+	font-family: "lobster";
+}
+

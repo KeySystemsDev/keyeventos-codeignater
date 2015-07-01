@@ -18,7 +18,7 @@
 |	http://localhost/proyectos/medievento/
 */
 
-$config['base_url']	= 'http://localhost/ks/medievento/';
+$config['base_url']	= 'http://localhost/ks/keyeventos-codeignater/';
 
 /*
 |--------------------------------------------------------------------------

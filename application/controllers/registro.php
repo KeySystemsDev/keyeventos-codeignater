@@ -124,7 +124,11 @@ class Registro extends CI_Controller{
 		$this->layout->setTitle('.: Pagos :.');		
 		$menu 				= $this->menu;
 		$sub_menu 		= $this->sub_menu;
-		$this->layout->view('pagos', compact('menu', 'sub_menu', 'pagos'));
+		$metodo_pago = $this->t_tipo_model->consultar_tipo_pago();
+		$banco = $this->t_tipo_model->consultar_banco();
+		$evento = $this->t_evento_model->consultar_eventos();
+
+		$this->layout->view('pagos', compact('menu', 'sub_menu', 'pagos','metodo_pago','banco','evento'));
 	}
 
 	public function consultar_pagos(){
@@ -153,6 +157,18 @@ class Registro extends CI_Controller{
 		$insertar_pagos	= $this->t_pago_model->insertar_pago($arreglo);
 	}
 
+	public function insertar_detalle_pagos(){
+		$arreglo = array(
+			'id_pago'                        => $this->input->post("i_pago"),
+			'id_evento'                      => $this->input->post("s_evento"),
+			'id_tipo_pago'                   => $this->input->post("s_metodo_pago"),
+			'id_tipo_banco'                  => $this->input->post("s_banco"),
+			'numero_movimiento_detalle_pago' => $this->input->post("i_movimiento"),
+			'fecha_pago_detalle_pago'        => $this->input->post("i_fecha")
+		);
+		$insertar_detalle_pagos	= $this->t_detalle_pago_model->insertar_detalle_pago($arreglo);
+	}
+
 
 	/* ----------------------------------------------------------------------
 	|
@@ -161,26 +177,24 @@ class Registro extends CI_Controller{
 	|
 	|
 	-----------------------------------------------------------------------*/		
+	public function eventos(){
+		$this->layout->setTitle('.: Eventos :.');		
+		$menu 				= $this->menu;
+		$sub_menu 		= $this->sub_menu;
+		
+		$this->layout->view('eventos', compact('menu', 'sub_menu', 'eventos'));
+	}
+
 	public function registro_evento(){
 		$this->layout->setTitle('.: Registros Eventos :.');		
 		$menu 				= $this->menu;
 		$sub_menu 		= $this->sub_menu;
-		$this->layout->view('pagos', compact('menu', 'sub_menu', 'pagos'));
+		$this->layout->view('eventos', compact('menu', 'sub_menu', 'eventos'));
 
 		$arreglo = array(
-			'apellido_pago' 		=> $this->input->post("i_apellido"),
-			'ci_pass_pago' 			=> $this->input->post("i_cedula"),
-			'edad_pago' 				=> $this->input->post("i_edad"),
-			'email_pago' 				=> $this->input->post("i_email"),
-			'estado_pago' 		  => $this->input->post("s_estado"),									
-			'nombre_pago'				=> $this->input->post("i_nombre"),
-			'ocupacion_pago' 	  => $this->input->post("s_ocupacion"),
-			'sexo_pago' 			  => $this->input->post("s_sexo"),
-			'telefono_pago' 	  => $this->input->post("i_telefono"),
-			'twitter_pago' 			=> $this->input->post("i_twitter"),
-			'universidad_pago' 	=> $this->input->post("i_universidad"),
-			'id_evento' 	      => $this->input->post("id_evento")
+			'nombre_evento' 	 => $this->input->post("i_evento"),
+			'descripcion_evento' => $this->input->post("i_descripcion")
 		);
-		$insertar_pagos	= $this->t_pago_model->insertar_pago($arreglo);
+		$insertar_evento	     = $this->t_evento_model->insertar_evento($arreglo);
 	}	
 }

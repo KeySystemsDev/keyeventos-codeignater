@@ -116,6 +116,8 @@ $autoload['model'] = array(
 											'app/t_tipo_model',
 											'app/t_laboratorio_model',
 											'app/t_pago_model',
+											'app/t_evento_model',
+											'app/t_detalle_pago_model',
 											'config/t_aplicacion_model',
 											'config/t_aplicacion_usuario_model',
 											'config/configuracion_model',

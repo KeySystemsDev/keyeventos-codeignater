@@ -40,6 +40,22 @@ class T_tipo_model extends CI_Model {
 		return $query;
 	}
 
+	public function consultar_tipo_pago(){
+		$this->accion       = 'consulta_generica';
+		$this->id_maestro 	= '7';
+
+		$query 		        = $this->_enviar_parametros();
+		return $query;
+	}
+
+	public function consultar_banco(){
+		$this->accion       = 'consulta_generica';
+		$this->id_maestro 	= '8';
+
+		$query 		        = $this->_enviar_parametros();
+		return $query;
+	}
+
 	function _enviar_parametros(){  
     $procedure = $this->db_app
     ->query(

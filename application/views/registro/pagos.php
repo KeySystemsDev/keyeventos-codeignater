@@ -1,6 +1,6 @@
 <script type="text/javascript">
   $(function() {
-    $("#s_asistencia, #s_especialidad").select2();
+    $("#s_metodo_pago, #s_especialidad, #s_banco, #s_evento").select2();
     $('.registro, .detalle-pago').hide();
     
     $('#buscar').click(function () {     
@@ -11,7 +11,6 @@
         data: 'i_cedula=' + cedula, 
         dataType: "json",     
         success: function (data) {
-          alert(data);
           if(data == ''){
             $('.registro').slideDown();
             $('.detalle-pago').slideUp();            
@@ -35,7 +34,6 @@
       if(a != 0 && b != 0 && c != 0 && d != 0 && e != 0 
       && f != 0 && g != 0){*/
         var datos = $("#pagos").serialize();
-        alert(datos);
         $.ajax({
           type: 'POST',
           url: '<?php echo base_url()?>registro/insertar_pagos',
@@ -151,11 +149,10 @@
 
             if(a != 0 && b != 0 && c != 0 && d != 0 && e != 0 
             && f != 0 && g != 0){*/
-              var datos = $("#pagos").serialize();
-              alert(datos);
+              var datos = $("#detalle").serialize();
               $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url()?>registro/insertar_pagos',
+                url: '<?php echo base_url()?>registro/insertar_detalle_pagos',
                 data: datos,         
                 success: function (data) { 
                   $('.detalle-pago').slideDown();          
@@ -167,17 +164,60 @@
         });
       </script>
       <form id="detalle" role="form"  class="detalle-pago">
+        <input type="hidden" id="i_pago" name="i_pago" value="2">
         <div class="box-body">
-          <div class="form-group">
-            <label for="i_universidad">Universidad:</label>
-            <input type="text" class="form-control" id="i_universidad" name="i_universidad" placeholder="Ingrese su Nombre de la Universidad">
+           <div class="form-group mostrar">
+            <label for="s_evento">Nombre del Evento:</label>
+            <select style="width:100%" id="s_evento" name="s_evento">  
+              <option value="0" selected>Seleccionar</option>            
+              <?php
+                if(isset($evento) && !empty($evento)){
+                  foreach ($evento as $key) {
+                    echo  
+                    '<option value="'.$key->id_evento.'"> '.utf8_decode(ucwords($key->nombre_evento)).' </option>';
+                  }
+                }
+              ?>
+            </select> 
           </div>
+          <div class="form-group mostrar">
+            <label for="s_metodo_pago">Metodo de Pago:</label>
+            <select style="width:100%" id="s_metodo_pago" name="s_metodo_pago">  
+              <option value="0" selected>Seleccionar</option>            
+              <?php
+                if(isset($metodo_pago) && !empty($metodo_pago)){
+                  foreach ($metodo_pago as $key) {
+                    echo  
+                    '<option value="'.$key->id_tipo.'"> '.utf8_decode(ucwords($key->nombre_tipo)).' </option>';
+                  }
+                }
+              ?>
+            </select> 
+          </div>
+          <div class="form-group mostrar">
+            <label for="s_banco">Banco:</label>
+            <select style="width:100%" id="s_banco" name="s_banco">  
+              <option value="0" selected>Seleccionar</option>            
+              <?php
+                if(isset($banco) && !empty($banco)){
+                  foreach ($banco as $key) {
+                    echo  
+                    '<option value="'.$key->id_tipo.'"> '.utf8_decode(ucwords($key->nombre_tipo)).' </option>';
+                  }
+                }
+              ?>
+            </select> 
+          </div>  
           <div class="form-group">
-            <label for="i_universidad">Universidad:</label>
-            <input type="text" class="form-control" id="i_universidad" name="i_universidad" placeholder="Ingrese su Nombre de la Universidad">
+            <label for="i_universidad">Numero de Movimiento:</label>
+            <input type="text" class="form-control" id="i_movimiento" name="i_movimiento" placeholder="Ingrese su Nombre de la Universidad">
+          </div>  
+          <div class="form-group">
+            <label for="i_universidad">Fecha de pago</label>
+            <input type="text" class="form-control" id="i_fecha" name="i_fecha" placeholder="Ingrese su Nombre de la Universidad">
           </div>                                         
           <div class="box-footer">
-            <button type="button" id="procesar" class="btn btn-primary">Procesar</button>
+            <button type="button" id="procesar" class="btn btn-primary">Guardar</button>
           </div>
           <div class="box-footer" id="ajax_detalle">
             Mensajes de notificación. 

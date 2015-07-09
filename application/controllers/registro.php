@@ -137,18 +137,18 @@ class Registro extends CI_Controller{
 
 	public function insertar_pagos(){
 		$arreglo = array(
-			'apellido_pago' 		=> $this->input->post("i_apellido"),
-			'ci_pass_pago' 			=> $this->input->post("i_cedula"),
-			'edad_pago' 				=> $this->input->post("i_edad"),
-			'email_pago' 				=> $this->input->post("i_email"),
-			'estado_pago' 		  => $this->input->post("s_estado"),									
-			'nombre_pago'				=> $this->input->post("i_nombre"),
-			'ocupacion_pago' 	  => $this->input->post("s_ocupacion"),
-			'sexo_pago' 			  => $this->input->post("s_sexo"),
-			'telefono_pago' 	  => $this->input->post("i_telefono"),
-			'twitter_pago' 			=> $this->input->post("i_twitter"),
-			'universidad_pago' 	=> $this->input->post("i_universidad"),
-			'id_evento' 	      => $this->input->post("id_evento")
+			'apellido_pago'    => $this->input->post("i_apellido"),
+			'ci_pass_pago'     => $this->input->post("i_cedula"),
+			'edad_pago'        => $this->input->post("i_edad"),
+			'email_pago'       => $this->input->post("i_email"),
+			'estado_pago'      => $this->input->post("s_estado"),									
+			'nombre_pago'      => $this->input->post("i_nombre"),
+			'ocupacion_pago'   => $this->input->post("s_ocupacion"),
+			'sexo_pago'        => $this->input->post("s_sexo"),
+			'telefono_pago'    => $this->input->post("i_telefono"),
+			'twitter_pago'     => $this->input->post("i_twitter"),
+			'universidad_pago' => $this->input->post("i_universidad"),
+			'id_evento'        => $this->input->post("id_evento")
 		);
 		$insertar_pagos	= $this->t_pago_model->insertar_pago($arreglo);
 	}

@@ -3,7 +3,7 @@
     # /application
      
     RewriteEngine On
-    RewriteBase /ks/medievento/
+    RewriteBase /ks/keyeventos-codeigniter/
  
     RewriteCond %{REQUEST_URI} ^system.*
     RewriteRule ^(.*)$ /ks/keyeventos-codeignater/index.php?/$1 [L]
@@ -22,5 +22,5 @@
 </IfModule>
  
 <IfModule !mod_rewrite.c>
-    ErrorDocument 404 /ks/medievento/index.php
+    ErrorDocument 404 /ks/keyeventos-codeigniter/index.php
 </IfModule>

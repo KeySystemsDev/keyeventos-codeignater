@@ -210,11 +210,11 @@
           </div>  
           <div class="form-group">
             <label for="i_universidad">Numero de Movimiento:</label>
-            <input type="text" class="form-control" id="i_movimiento" name="i_movimiento" placeholder="Ingrese su Nombre de la Universidad">
+            <input type="text" class="form-control" id="i_movimiento" name="i_movimiento" placeholder="Ingrese su Numero de Movimiento">
           </div>  
           <div class="form-group">
             <label for="i_universidad">Fecha de pago</label>
-            <input type="text" class="form-control" id="i_fecha" name="i_fecha" placeholder="Ingrese su Nombre de la Universidad">
+            <input type="text" class="form-control" id="i_fecha" name="i_fecha" placeholder="Ingrese la fecha de Pago">
           </div>                                         
           <div class="box-footer">
             <button type="button" id="procesar" class="btn btn-primary">Guardar</button>

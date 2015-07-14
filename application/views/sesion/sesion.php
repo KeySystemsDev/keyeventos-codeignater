@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="panel-footer">
-          Para regresar a la pagina web,<a href="<?php echo base_url()?>"> aquí.</a></div>
+          Para registrarse click,<a href="<?php echo base_url().'sesion/registrarse'?>"> aquí.</a></div>
         </div>
       </div>
     </div>

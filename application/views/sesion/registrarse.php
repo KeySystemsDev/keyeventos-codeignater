@@ -1,22 +1,43 @@
 <div class="container">
-  <div class="card card-signin">
-    <img class="img-circle profile-img" src="<?php echo base_url(); ?>public/img/avatar.png" alt="">
-    <?php
-      $sesion_atr = array(
-                      'id' => 'd_sesion',
-                      'class' => 'form-signin' 
-                    );
-      echo form_open('sesion/conectar', $sesion_atr);
-    ?>      
-      <input type="text" class="form-control" name="n_usuario" placeholder="Usuario" required autofocus>
-      <input type="password" class="form-control" name="n_password" placeholder="Contraseña" required>
-      <input type="password" class="form-control" name="n_repetir_password" placeholder="Repetir Contraseña" required>      
-      <button class="btn btn-lg btn-default btn-block" type="submit">Registrarme</button>         
-      <div style="padding-top:10px;">
-	      <a href="<?php echo base_url()?>sesion">
-	        <button type="button" class="btn btn-primary pull-right">Iniciar Sesión</button>
-	      </a>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-8">      
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="glyphicon glyphicon-lock"></span> Iniciar Sesión</div>
+            <div class="panel-body">
+
+              <form class="form-horizontal" role="form" action="<?php echo base_url()?>sesion/conectar" method="POST">
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-3 control-label">
+                            Correo</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="n_usuario" placeholder="Usuario" required autofocus>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-3 control-label">
+                            Contraseña</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" name="n_password" placeholder="Contraseña" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-3 control-label">
+                            Repetir Contraseña</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" name="n_repetir_password" placeholder="Contraseña" required>
+                          </div>
+                        </div>
+                        <div class="form-group last">
+                          <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-success btn-sm">Registrarme</button>
+                          </div>
+                        </div>
+                 </form>
     	</div>
+      </div>
+    </div>
+      </div>
       <div style="padding-top:10px;">
         <?php echo $error ?>
       </div>

@@ -17,7 +17,38 @@ class Sesion extends CI_Controller{
 		$this->layout->setTitle('Nuevo Usuario');				
 		$contenido['error'] = '';	
 		$this->layout->view('registrarse', $contenido);
-	}		
+	}	
+
+	function registrar_usuario(){
+		$this->layout->setTitle('Nuevo Usuario');				
+		$arreglo  	= array(
+			'correo_usuario' => $this->input->post('i_usuario'),
+			'clave_usuario'	 => $this->input->post('i_password')
+		);
+		$this->t_usuario_model->insertar_usuario($arreglo);
+			$arreglo = $this->permisologia_model->getUsuario($this->input->post('i_usuario'), $this->input->post('i_password'));
+
+		foreach ($arreglo as $key) {
+			$this->session->set_userdata('usuario', $key->correo_usuario);
+			$this->session->set_userdata('id_usuario', $key->id_usuario);
+			$this->session->set_userdata('id_aplicacion', $key->id_aplicacion);
+			$this->session->set_userdata('id_grupo', $key->id_grupo);			
+		}
+
+		$this->session->userdata('usuario');
+		$this->session->userdata('id_usuario');
+		$this->session->userdata('id_aplicacion');
+		$this->session->userdata('id_grupo');	
+		
+		$sesion = $this->session->userdata('usuario');
+
+		if (empty($sesion)){
+			$error = '<div class="alert alert-danger"><strong>Verifique, Usuario y Contraseña.</strong></div>';
+			$this->layout->view('sesion', compact('error'));
+		}else{
+			redirect(base_url().'panel/', 'refresh');	
+		}	
+	}	
 	
 	function conectar(){		
 		$this->load->helper('array');

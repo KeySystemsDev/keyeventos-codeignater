@@ -16,7 +16,6 @@ class T_pago_model extends CI_Model {
 		$this->telefono_pago 	  = '';
 		$this->twitter_pago 		= '';
 		$this->universidad_pago = '';
-		$this->id_evento        = '';
 	} 
 	
 	public function insertar_pago($arreglo = array()){
@@ -32,14 +31,13 @@ class T_pago_model extends CI_Model {
 		$this->telefono_pago		= isset($arreglo['telefono_pago']) ? $arreglo['telefono_pago'] : 'n/a';
 		$this->twitter_pago		  = isset($arreglo['twitter_pago']) ? $arreglo['twitter_pago'] : 'n/a';
 		$this->universidad_pago = isset($arreglo['universidad_pago']) ? $arreglo['universidad_pago'] : 'n/a';
-		$this->id_evento        = isset($arreglo['id_evento']) ? $arreglo['id_evento'] : 'n/a';
 
 		$query            		  = $this->_enviar_parametros();
 		return $query;
 	}
 
 	public function consultar_usuarios_registrados_pagos($arreglo = array()){
-	$this->accion = 'consulta_por_cedula';
+	$this->accion       = 'consulta_por_cedula';
 	$this->ci_pass_pago = $arreglo['ci_pass_pago'];
 
 	$query 		          = $this->_enviar_parametros();
@@ -61,8 +59,7 @@ class T_pago_model extends CI_Model {
 				'".$this->sexo_pago."', #sexo_pago_global
 				'".$this->telefono_pago."', #telefono_pago_global
 				'".$this->twitter_pago."', #twitter_pago_global
-				'".$this->universidad_pago."', #universidad_pago_global
-				'".$this->id_evento."' #id_evento
+				'".$this->universidad_pago."' #universidad_pago_global
 		  )"
 	  );
 

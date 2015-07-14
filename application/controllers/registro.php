@@ -151,21 +151,22 @@ class Registro extends CI_Controller{
 			'sexo_pago'        => $this->input->post("s_sexo"),
 			'telefono_pago'    => $this->input->post("i_telefono"),
 			'twitter_pago'     => $this->input->post("i_twitter"),
-			'universidad_pago' => $this->input->post("i_universidad"),
-			'id_evento'        => $this->input->post("id_evento")
+			'universidad_pago' => $this->input->post("i_universidad")
 		);
 		$insertar_pagos	= $this->t_pago_model->insertar_pago($arreglo);
 	}
 
 	public function insertar_detalle_pagos(){
 		$arreglo = array(
-			'id_pago'                        => $this->input->post("i_pago"),
 			'id_evento'                      => $this->input->post("s_evento"),
 			'id_tipo_pago'                   => $this->input->post("s_metodo_pago"),
 			'id_tipo_banco'                  => $this->input->post("s_banco"),
 			'numero_movimiento_detalle_pago' => $this->input->post("i_movimiento"),
-			'fecha_pago_detalle_pago'        => $this->input->post("i_fecha")
+			'fecha_pago_detalle_pago'        => $this->input->post("i_fecha"),
+			'ci_pass_pago'                   => $this->input->post("id_cedula"),
+
 		);
+		print_r($arreglo);
 		$insertar_detalle_pagos	= $this->t_detalle_pago_model->insertar_detalle_pago($arreglo);
 	}
 

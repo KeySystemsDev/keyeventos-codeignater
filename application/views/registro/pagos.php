@@ -30,9 +30,11 @@
       e = validar.correo('i_email');  
       f = validar.logico('i_habitacion', 'i_habitacion'); 
       g = validar.logico('i_inscripcion', 'i_inscripcion');  
-
+      
       if(a != 0 && b != 0 && c != 0 && d != 0 && e != 0 
       && f != 0 && g != 0){*/
+        evento = $('#s_evento').val();
+        $('#id_evento').val(evento)
         var datos = $("#pagos").serialize();
         $.ajax({
           type: 'POST',
@@ -164,7 +166,7 @@
         });
       </script>
       <form id="detalle" role="form"  class="detalle-pago">
-        <input type="hidden" id="i_pago" name="i_pago" value="2">
+        <input type="hidden" id="id_evento" name="id_evento" value="2">
         <div class="box-body">
            <div class="form-group mostrar">
             <label for="s_evento">Nombre del Evento:</label>
